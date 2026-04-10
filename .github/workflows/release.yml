@@ -170,21 +170,22 @@ jobs:
           VERSION="${GITHUB_REF_NAME#v}"
           echo "version=${VERSION:-0.1.0}" >> "$GITHUB_OUTPUT"
 
-      # ── MSI via WiX 4 ──
       - name: Install WiX 4
-        run: dotnet tool install --global wix --version 4.0.5
+        run: |
+          dotnet new tool-manifest
+          dotnet tool install wix --version 4.0.5
 
       - name: Add WiX UI extension
-        run: wix extension add WixToolset.UI.wixext/4.0.5
+        run: dotnet wix extension add WixToolset.UI.wixext/4.0.5
 
       - name: Build MSI
+        shell: pwsh
         run: |
           mkdir -p dist
-          wix build pkg/windows/stealthterm.wxs `
+          dotnet wix build pkg/windows/stealthterm.wxs `
             -bindpath:BinDir=target/x86_64-pc-windows-msvc/release `
             -bindpath:AssetDir=assets `
             -o dist/StealthTerm-${{ steps.version.outputs.version }}-x64.msi
-        shell: pwsh
 
       # ── Setup.exe via Inno Setup ──
       - name: Build Setup.exe
