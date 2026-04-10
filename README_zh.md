@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="assets/icon.svg" alt="图标" width="50%">
+</div>
+
 # StealthTerm
 
 [![English](https://img.shields.io/badge/lang-English-blue)](./README.md) | [![中文](https://img.shields.io/badge/语言-中文-red)](./README_zh.md)
