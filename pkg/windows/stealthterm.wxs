@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+
+  <Package Name="StealthTerm"
+           Manufacturer="StealthTerm Contributors"
+           Version="!(bind.FileVersion.StealthTermExe)"
+           UpgradeCode="E8A3B2C1-5D4F-4A6E-9B8C-7F1D2E3A4B5C">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of StealthTerm is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="StealthTerm">
+        <Component Id="MainExecutable" Guid="A1B2C3D4-E5F6-7890-ABCD-EF1234567890">
+          <File Id="StealthTermExe" Source="!(bindpath.BinDir)\StealthTerm.exe" KeyPath="yes" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <!-- Start Menu shortcut -->
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Component Id="StartMenuShortcut" Guid="B2C3D4E5-F6A7-8901-BCDE-F12345678901">
+        <Shortcut Id="StealthTermShortcut"
+                  Name="StealthTerm"
+                  Target="[INSTALLFOLDER]StealthTerm.exe"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon="StealthTermIcon" />
+        <RemoveFolder Id="RemoveStartMenuFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\StealthTerm" Name="StartMenuShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <!-- Desktop shortcut -->
+    <StandardDirectory Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="C3D4E5F6-A7B8-9012-CDEF-123456789012">
+        <Shortcut Id="DesktopStealthTermShortcut"
+                  Name="StealthTerm"
+                  Target="[INSTALLFOLDER]StealthTerm.exe"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon="StealthTermIcon" />
+        <RegistryValue Root="HKCU" Key="Software\StealthTerm" Name="DesktopShortcut" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <Icon Id="StealthTermIcon" SourceFile="!(bindpath.AssetDir)\app.ico" />
+
+    <Feature Id="Complete" Level="1">
+      <ComponentRef Id="MainExecutable" />
+      <ComponentRef Id="StartMenuShortcut" />
+      <ComponentRef Id="DesktopShortcut" />
+    </Feature>
+
+    <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+
+  </Package>
+</Wix>

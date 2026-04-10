@@ -1,0 +1,75 @@
+[workspace]
+members = [
+    "crates/app",
+    "crates/ui",
+    "crates/terminal",
+    "crates/ssh",
+    "crates/sftp",
+    "crates/config",
+    "crates/utils",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["StealthTerm Contributors"]
+license = "MIT"
+
+[workspace.dependencies]
+# GUI
+egui = "0.33"
+eframe = { version = "0.33", default-features = false, features = ["wgpu", "glow", "default_fonts", "wayland", "x11"] }
+wgpu = { version = "27", features = ["vulkan-portability"] }
+egui-twemoji = "0.8"
+twemoji-assets = { version = "=1.4.0", default-features = false, features = ["svg"] }
+
+# Async
+tokio = { version = "1", features = ["full"] }
+
+# Terminal
+portable-pty = "0.8"
+vte = "0.13"
+
+# SSH
+russh = "0.44"
+russh-keys = "0.44"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+
+# Error handling
+thiserror = "1"
+anyhow = "1"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Utils
+encoding_rs = "0.8"
+regex = "1"
+dirs = "5"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4"] }
+fuzzy-matcher = "0.3"
+gethostname = "0.5"
+
+# Crypto
+aes-gcm = "0.10"
+sha2 = "0.10"
+pbkdf2 = "0.12"
+hmac = "0.12"
+base64 = "0.22"
+rand = "0.8"
+zeroize = "1.7"
+
+[profile.dev]
+opt-level = 1
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1

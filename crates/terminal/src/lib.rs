@@ -1,0 +1,21 @@
+pub mod cell;
+pub mod grid;
+pub mod buffer;
+pub mod emulator;
+pub mod parser;
+pub mod renderer;
+pub mod selection;
+pub mod search;
+pub mod pty;
+pub mod completion;
+pub mod command_fold;
+
+pub use cell::{Cell, Color, CellAttributes};
+pub use grid::{Grid, Row};
+pub use buffer::ScrollbackBuffer;
+pub use emulator::TerminalEmulator;
+pub use pty::{PtySession, PtySize};
+pub use selection::Selection;
+pub use search::SearchState;
+pub use completion::CompletionEngine;
+pub use command_fold::{CommandFoldManager, CommandBlock, FoldRenderInfo};

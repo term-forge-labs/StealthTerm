@@ -1,0 +1,66 @@
+[package]
+name = "stealthterm"
+version.workspace = true
+edition.workspace = true
+description = "A modern terminal emulator with SSH support"
+license = "MIT"
+authors = ["StealthTerm Contributors"]
+
+[[bin]]
+name = "StealthTerm"
+path = "src/main.rs"
+
+[build-dependencies]
+winresource = "0.1"
+
+[dependencies]
+stealthterm-ui = { path = "../ui" }
+stealthterm-terminal = { path = "../terminal" }
+stealthterm-ssh = { path = "../ssh" }
+stealthterm-sftp = { path = "../sftp" }
+stealthterm-config = { path = "../config" }
+stealthterm-utils = { path = "../utils" }
+egui = { workspace = true }
+eframe = { workspace = true }
+egui-wgpu = "0.33"
+wgpu = { workspace = true }
+egui-twemoji = { workspace = true }
+twemoji-assets = { workspace = true }
+egui_extras = { version = "0.33", features = ["svg", "image"] }
+tokio = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+image = "0.25"
+
+# --- Packaging metadata ---
+
+[package.metadata.deb]
+maintainer = "StealthTerm Contributors"
+copyright = "2025 StealthTerm Contributors"
+depends = "$auto"
+section = "utils"
+priority = "optional"
+assets = [
+    ["target/release/StealthTerm", "usr/bin/stealthterm", "755"],
+    ["../../assets/icon.png", "usr/share/icons/hicolor/256x256/apps/stealthterm.png", "644"],
+    ["../../pkg/stealthterm.desktop", "usr/share/applications/stealthterm.desktop", "644"],
+]
+
+[package.metadata.generate-rpm]
+assets = [
+    { source = "target/release/StealthTerm", dest = "/usr/bin/stealthterm", mode = "755" },
+    { source = "../../assets/icon.png", dest = "/usr/share/icons/hicolor/256x256/apps/stealthterm.png", mode = "644" },
+    { source = "../../pkg/stealthterm.desktop", dest = "/usr/share/applications/stealthterm.desktop", mode = "644" },
+]
+
+[package.metadata.bundle]
+name = "StealthTerm"
+identifier = "com.stealthterm.app"
+icon = ["../../assets/icon.png"]
+category = "public.app-category.developer-tools"
+short_description = "A modern terminal emulator with SSH support"
+copyright = "2025 StealthTerm Contributors"

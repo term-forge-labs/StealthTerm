@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=StealthTerm
+Comment=A modern terminal emulator with SSH support
+Exec=stealthterm
+Icon=stealthterm
+Terminal=false
+Type=Application
+Categories=System;TerminalEmulator;
+Keywords=terminal;ssh;shell;
+StartupWMClass=StealthTerm

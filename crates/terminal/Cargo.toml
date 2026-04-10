@@ -1,0 +1,21 @@
+[package]
+name = "stealthterm-terminal"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+stealthterm-utils = { path = "../utils" }
+stealthterm-config = { path = "../config" }
+tokio = { workspace = true }
+vte = { workspace = true }
+portable-pty = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+encoding_rs = { workspace = true }
+regex = { workspace = true }
+unicode-width = "0.1"
+fuzzy-matcher = { workspace = true }
+
+[target.'cfg(not(target_os = "windows"))'.dependencies]
+libc = "0.2"

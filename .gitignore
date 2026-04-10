@@ -1,0 +1,9 @@
+/target
+Cargo.lock
+.env
+*.swp
+.DS_Store
+/.claude
+/.claude/
+.claude/
+CLAUDE.md

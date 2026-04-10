@@ -1,0 +1,25 @@
+[package]
+name = "stealthterm-ui"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+stealthterm-terminal = { path = "../terminal" }
+stealthterm-ssh = { path = "../ssh" }
+stealthterm-sftp = { path = "../sftp" }
+stealthterm-config = { path = "../config" }
+stealthterm-utils = { path = "../utils" }
+egui = { workspace = true }
+egui-twemoji = { workspace = true }
+twemoji-assets = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+chrono = { workspace = true }
+arboard = "3.4"
+portable-pty = { workspace = true }
+dirs = "5"
+gethostname = { workspace = true }
+rfd = "0.15"

@@ -1,0 +1,17 @@
+[package]
+name = "stealthterm-ssh"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+stealthterm-config = { path = "../config" }
+stealthterm-utils = { path = "../utils" }
+tokio = { workspace = true }
+russh = "0.44"
+russh-keys = "0.44"
+russh-sftp = "2.0"
+thiserror = { workspace = true }
+tracing = { workspace = true }
+serde = { workspace = true }
+async-trait = "0.1"
+encoding_rs = { workspace = true }
