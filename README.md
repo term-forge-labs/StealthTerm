@@ -1,3 +1,6 @@
+![图标](./assets/icon.svg)
+
+
 # StealthTerm
 
 [![English](https://img.shields.io/badge/lang-English-blue)](./README.md) | [![Chinese](https://img.shields.io/badge/语言-中文-red)](./README_zh.md)
