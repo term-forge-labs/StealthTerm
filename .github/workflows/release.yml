@@ -184,8 +184,8 @@ jobs:
           mkdir -p dist
           dotnet wix build pkg/windows/stealthterm.wxs `
             -ext WixToolset.UI.wixext `
-            -bv BinDir=target/x86_64-pc-windows-msvc/release `
-            -bv AssetDir=assets `
+            -b BinDir=target/x86_64-pc-windows-msvc/release `
+            -b AssetDir=assets `
             -o dist/StealthTerm-${{ steps.version.outputs.version }}-x64.msi
 
       # ── Setup.exe via Inno Setup ──
