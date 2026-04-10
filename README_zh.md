@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/icon.svg" alt="图标" width="50%">
+  <img src="assets/icon.svg" alt="图标" width="25%">
 </div>
 
 # StealthTerm
