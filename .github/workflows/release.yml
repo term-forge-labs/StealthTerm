@@ -175,7 +175,9 @@ jobs:
         run: dotnet tool install --global wix
 
       - name: Add WiX UI extension
-        run: wix extension add WixToolset.UI.wixext/4.0.5
+        run: wix extension add WixToolset.UI.wixext/4.0.5 --accept-eula
+        env:
+          WIX_ACCEPT_OSMF_EULA: "yes"
 
       - name: Build MSI
         run: |
@@ -185,6 +187,8 @@ jobs:
             -bindpath:AssetDir=assets `
             -o dist/StealthTerm-${{ steps.version.outputs.version }}-x64.msi
         shell: pwsh
+        env:
+          WIX_ACCEPT_OSMF_EULA: "yes"
 
       # ── Setup.exe via Inno Setup ──
       - name: Build Setup.exe
