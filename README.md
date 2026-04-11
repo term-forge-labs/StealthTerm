@@ -88,6 +88,8 @@ We are continuously optimizing the project in the following areas:
 - [ ] Enhance the stability of command history autocompletion and collapsed output
 - [ ] Optimize split-screen functionality
 - [ ] Improve compatibility across all platform versions
+- [ ] Enhance the security of password, key, and command history storage
+- [ ] Improve the visual appeal of menus, pop-ups, and window elements
 
 
 **📋 Planned Features**
