@@ -13,6 +13,11 @@ A minimalist, efficient, modern terminal emulator built with Rust.
 
 StealthTerm is designed to provide a **distraction-free, clean terminal experience**. We’ve removed the traditional menu bar to keep all your attention focused on the terminal content itself. The project’s core features are already in place, and we’ll continue to iterate in the future to bring you more practical features.
 
+
+<img width="1598" height="998" alt="2" src="https://github.com/user-attachments/assets/7071d652-6117-4908-8ee3-d51eae6ea616" />
+<img width="1602" height="1000" alt="1" src="https://github.com/user-attachments/assets/e1b849c6-8658-47f5-aa46-7748a2db1926" />
+
+
 ## 🚀 Current Features
 
 - [x] Minimalist Interface: No menu bar, no title bar, collapsible sidebar, maximizing the content display area
